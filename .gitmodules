@@ -1,0 +1,3 @@
+[submodule "src/contactGroups"]
+	path = src/contactGroups
+	url = https://github.com/MesihK/contactGroups.git

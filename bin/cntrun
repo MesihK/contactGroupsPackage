@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+
+import sys
+import importlib
+import contactGroups
+import contactGroups.utils_mesih
+import contactGroups.utils_resimap
+import contactGroups.utils_pfammsa
+import contactGroups.utils_protein2
+import contactGroups.proc_hammingweight
+import contactGroups.utils_dca
+import contactGroups.utils_embossalign
+import contactGroups.utils_gnm
+import contactGroups.utils_anm
+
+#get 
+packages = [ s for s in dir(sys.modules['contactGroups']) if '__' not in s]
+
+funcs = dict()
+for p in packages:
+    funcs[p] = [ s for s in dir(sys.modules['contactGroups.'+p]) if '__' not in s]
+
+for p in funcs:
+    if sys.argv[1] in funcs[p]:
+        getattr(sys.modules['contactGroups.'+p], sys.argv[1])(sys.argv[2:])

@@ -20,6 +20,11 @@ funcs = dict()
 for p in packages:
     funcs[p] = [ s for s in dir(sys.modules['contactGroups.'+p]) if '__' not in s]
 
+found = False
 for p in funcs:
     if sys.argv[1] in funcs[p]:
+        found = True
         getattr(sys.modules['contactGroups.'+p], sys.argv[1])(sys.argv[2:])
+
+if not found:
+    print("Error function %s could't found" % sys.argv[1])

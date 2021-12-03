@@ -12,6 +12,7 @@ import contactGroups.utils_dca
 import contactGroups.utils_embossalign
 import contactGroups.utils_gnm
 import contactGroups.utils_anm
+import contactGroups.utils_flaten
 
 #get 
 packages = [ s for s in dir(sys.modules['contactGroups']) if '__' not in s]
